@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var items = [
         "Item 1", "Item 2", "Item 3"
     ]
-    @State var selection: String? = nil
+    @Binding var selection: String?
     
     var body: some View {
         HStack {
@@ -26,6 +26,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(selection: Binding.constant(nil))
     }
 }

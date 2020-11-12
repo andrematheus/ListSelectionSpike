@@ -14,9 +14,10 @@ struct ListSelectionApp: App {
             print("did set! \(String(describing: selected))")
         }
     }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(selection: $selected)
         }
     }
 }
