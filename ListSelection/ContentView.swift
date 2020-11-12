@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var items = [
+        "Item 1", "Item 2", "Item 3"
+    ]
+    @State var selection: String? = nil
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack {
+            List(items, id: \.self, selection: $selection) { item in
+                Text(item).tag(item)
+            }
+            
+            Text(selection ?? "")
+        }
     }
 }
 

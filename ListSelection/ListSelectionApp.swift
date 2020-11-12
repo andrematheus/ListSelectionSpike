@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct ListSelectionApp: App {
+    @State var selected: String? {
+        didSet {
+            print("did set! \(String(describing: selected))")
+        }
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
