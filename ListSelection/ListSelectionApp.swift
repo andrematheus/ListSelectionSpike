@@ -17,7 +17,7 @@ struct ListSelectionApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(selection: $selected)
+            ContentView()
         }
     }
 }
