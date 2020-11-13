@@ -29,7 +29,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(items.indices, id: \.self, selection: $selection) { index in
-                Text(items[index].name).tag(items[index])
+                NavigationLink(destination: ItemEdit(item: $items[index])) {
+                    Text(items[index].name).tag(items[index])
+                }
             }
             
             Text(String.init(describing: selection))
