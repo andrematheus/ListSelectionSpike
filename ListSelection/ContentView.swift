@@ -21,9 +21,7 @@ struct ItemEdit: View {
 }
 
 struct ContentView: View {
-    @State var items = [
-        "Item 1", "Item 2", "Item 3"
-    ].map { Item(name: $0) }
+    @Binding var items: [Item]
     @Binding var selection: Int?
     
     var body: some View {
@@ -41,6 +39,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(selection: Binding.constant(nil))
+        ContentView(items: Binding.constant([]),
+                    selection: Binding.constant(nil))
     }
 }

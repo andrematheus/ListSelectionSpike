@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct ListSelectionApp: App {
+    @State var items = [
+        "Item 1", "Item 2", "Item 3"
+    ].map { Item(name: $0) }
     @State var selected: Int?
     
     var body: some Scene {
         WindowGroup {
-            ContentView(selection: $selected)
+            ContentView(items: $items, selection: $selected)
         }
     }
 }
