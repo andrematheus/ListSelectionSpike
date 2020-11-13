@@ -9,22 +9,30 @@ import SwiftUI
 
 struct Item: Hashable {
     let id = UUID()
-    let name: String
+    var name: String
+}
+
+struct ItemEdit: View {
+    @Binding var item: Item
+    
+    var body: some View {
+        TextField("name", text: $item.name)
+    }
 }
 
 struct ContentView: View {
     @State var items = [
         "Item 1", "Item 2", "Item 3"
     ].map { Item(name: $0) }
-    @Binding var selection: Item?
+    @Binding var selection: Int?
     
     var body: some View {
         NavigationView {
-            List(items, id: \.self, selection: $selection) { item in
-                Text(item.name).tag(item)
+            List(items.indices, id: \.self, selection: $selection) { index in
+                Text(items[index].name).tag(items[index])
             }
             
-            Text(selection?.name ?? "")
+            Text(String.init(describing: selection))
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct ListSelectionApp: App {
-    @State var selected: Item? 
+    @State var selected: Int?
     
     var body: some Scene {
         WindowGroup {
