@@ -19,7 +19,7 @@ struct ContentView: View {
     @Binding var selection: Item?
     
     var body: some View {
-        HStack {
+        NavigationView {
             List(items, id: \.self, selection: $selection) { item in
                 Text(item.name).tag(item)
             }
